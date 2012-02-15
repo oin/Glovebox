@@ -22,6 +22,8 @@ I didn't aim to develop a full fledged improvised interface : Glovebox has some 
 
 **Beware** ! Glovebox is an *experimental-quality* software. This means it is designed to work on my machine for my requirements, but it can possibly blow on your machine. Don't expect everything to work seamlessly. You can also find the source code smells a lot : again, it is _experimental-quality_ software, so it is very far from a stable, elegant and fully working release. However, the source code is under a GPL license, so feel free to fork and reuse anything if you want something this project doesn't provide (eg. stability).
 
+This project has been released to facilitate experimentation with tangible AR interfaces, and especially improvised interfaces. It can also be used by artists or adventurous tinkerers. The fact it runs with Python ensures you can interface it with the Twitter API or your coffee brewer.
+
 # How to use Glovebox
 
 For now, Glovebox only works on fairly recent (>= 2007-2008) Mac OS X Intel machines. It has been tested on Lion and Snow Leopard. You can download the last compiled version in [GitHub](https://github.com/oin/Glovebox/downloads) or in the [official site](http://glovebox.oin.name).
@@ -92,6 +94,8 @@ If you want to tinker with the C++ extension or aren't satisfied with how the bi
 
 ## Requirements
 
+### C++ extension
+
 * [Python 2.7](http://www.python.org)
 * [CMake](http://www.cmake.org)
 * [Boost 1.48.0](http://www.boost.org)
@@ -99,6 +103,11 @@ If you want to tinker with the C++ extension or aren't satisfied with how the bi
 * OpenGL (it's in your system)
 
 ARToolKitPlus 2.2.1 and a recent libpd version are included and statically compiled.
+
+### Python part
+
+* [cocos2d](http://www.cocos2d.org)
+* [pyglet](http://www.pyglet.org)
 
 ## On Mac OS X
 
