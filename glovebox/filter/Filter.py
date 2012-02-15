@@ -33,7 +33,6 @@ class Filter(object):
 	
 	def reset(self, t, r):
 		"""Reset the filter to given values."""
-		print "reset"
 		self.translation = t
 		self.rotation = r
 	
