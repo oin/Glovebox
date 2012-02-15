@@ -23,7 +23,6 @@ from glovebox.shakemenus.ShakeMenu import *
 from glovebox.tools.ObjectSprite import ObjectSprite
 from cocos.director import director
 from glovebox.play import DefaultBehavior
-import glob
 import os
 
 behavior_name = 'Sampler'
@@ -35,7 +34,11 @@ class SamplerBehavior(SourceBehavior):
 		super(SamplerBehavior, self).__init__("sampler/sampler.pd")
 		global behavior_name
 		self.display_name = behavior_name
-		self.samples = [os.path.basename(f) for f in glob.glob(os.path.abspath(os.path.join(os.path.dirname(__file__), 'samples', '*.wav')))]
+		self.samples = []
+		for file in os.listdir(os.path.abspath(os.path.join(os.path.dirname(__file__), 'samples'))):
+			if file.endswith(".wav"):
+				self.samples.append(os.path.basename(file))
+		# [os.path.basename(f) for f in glob.glob(os.path.abspath(os.path.join(os.path.dirname(__file__), 'samples', '*.wav')))]
 		self.time_last_impulse = 0
 		self.needs_to_reappear = False
 		self.sprite = ObjectSprite("maracas.png")

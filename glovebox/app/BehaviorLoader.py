@@ -74,11 +74,11 @@ class BehaviorLoader(object):
 				name, extension = os.path.splitext(file)
 				if name and name == os.path.basename(path) and extension == '.py':
 					full_module = os.path.join(path, file)
-					try:
-						self.behaviors[name] = BehaviorModule(name, full_module)
-					except:
-						print "Incorrect behavior: %s" % full_module
-						pass
+					# try:
+					self.behaviors[name] = BehaviorModule(name, full_module)
+					# except:
+						# print "Incorrect behavior: %s" % full_module
+						# pass
 
 class BehaviorModule(object):
 	"""A behavior module represents the available information about a behavior.
