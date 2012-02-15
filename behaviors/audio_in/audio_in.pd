@@ -1,0 +1,13 @@
+#N canvas 0 22 450 300 10;
+#X obj 121 148 inlet;
+#X obj 25 11 route input;
+#X msg 139 52 set \$1;
+#X obj 134 28 symbol;
+#X obj 37 177 ../_lib/to_glovebox \$0;
+#X obj 139 80 receive~;
+#X connect 0 0 4 1;
+#X connect 1 0 3 0;
+#X connect 2 0 5 0;
+#X connect 3 0 2 0;
+#X connect 4 0 1 0;
+#X connect 5 0 4 0;

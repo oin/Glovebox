@@ -1,0 +1,49 @@
+#N canvas 231 120 727 285 10;
+#X obj 10 10 inlet~;
+#X obj 126 15 inlet;
+#X obj 10 148 noclick;
+#X msg 100 146 0;
+#X msg 134 146 1;
+#X obj 159 90 t b;
+#X obj 134 175 pipe 100;
+#X obj 188 90 unpack s;
+#X obj 188 145 pipe s 100;
+#X obj 10 241 throw~ master;
+#X msg 188 210 set \$1;
+#X obj 168 15 r glovebox\$1;
+#X obj 263 109 unpack s;
+#X obj 553 226 outlet;
+#X obj 300 250 send;
+#X obj 325 155 t b;
+#X obj 325 184 symbol glovebox\$1;
+#X text 550 245 Remaining messages are sent to the parent patch;
+#X obj 126 49 route active redirect who volume;
+#X text 350 20 This patch implements common useful commands for any
+supported GloveBox patch. active <0/1>: turn on/off sound output (without
+clicks) redirect <symbol>: redirects sound output who <symbol>: sends
+the GloveBox patch's receive name to the given receiver volume <0.f->1.f>:
+specify the volume;
+#X obj 10 86 *~ 1;
+#X connect 0 0 20 0;
+#X connect 1 0 18 0;
+#X connect 2 0 9 0;
+#X connect 3 0 2 1;
+#X connect 4 0 6 0;
+#X connect 5 0 3 0;
+#X connect 5 0 4 0;
+#X connect 6 0 2 1;
+#X connect 7 0 8 0;
+#X connect 8 0 10 0;
+#X connect 10 0 9 0;
+#X connect 11 0 18 0;
+#X connect 12 0 14 1;
+#X connect 15 0 16 0;
+#X connect 16 0 14 0;
+#X connect 18 0 2 1;
+#X connect 18 1 5 0;
+#X connect 18 1 7 0;
+#X connect 18 2 12 0;
+#X connect 18 2 15 0;
+#X connect 18 3 20 1;
+#X connect 18 4 13 0;
+#X connect 20 0 2 0;

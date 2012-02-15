@@ -1,0 +1,35 @@
+#N canvas 557 449 450 300 10;
+#X msg 154 157 freq \$1;
+#X obj 164 128 hsl 128 15 440 880 0 0 empty empty empty -2 -8 0 10
+-262144 -1 -1 2100 1;
+#X obj 222 148 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X msg 211 173 active \$1;
+#X msg 78 68 freq \$1;
+#X obj 86 22 hsl 128 15 440 880 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 8100 1;
+#X obj 146 59 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X msg 135 84 active \$1;
+#X obj 271 72 s glovebox1456;
+#X msg 268 35 active 0;
+#X obj 17 204 catch~ pipizo;
+#X obj 23 253 dac~;
+#X msg -34 45 redirect pipizo;
+#X msg -30 69 redirect master;
+#X obj 109 236 catch~ master;
+#X obj 71 117 sine;
+#X obj 147 187 sine;
+#X connect 0 0 16 0;
+#X connect 1 0 0 0;
+#X connect 2 0 3 0;
+#X connect 3 0 16 0;
+#X connect 4 0 15 0;
+#X connect 5 0 4 0;
+#X connect 6 0 7 0;
+#X connect 7 0 15 0;
+#X connect 9 0 8 0;
+#X connect 10 0 11 0;
+#X connect 12 0 15 0;
+#X connect 13 0 15 0;
+#X connect 14 0 11 1;

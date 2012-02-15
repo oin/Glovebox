@@ -1,0 +1,19 @@
+#N canvas 762 373 450 300 10;
+#X obj 146 59 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X msg 135 84 active \$1;
+#X obj -11 268 dac~;
+#X obj 10 210 catch~ master;
+#X obj 16 238 *~ 0.3;
+#X msg 12 73 impulse 1;
+#X msg -14 99 impulse 0.3;
+#X obj 71 117 sampler;
+#X msg 60 29 load samples/snare.wav;
+#X connect 0 0 1 0;
+#X connect 1 0 7 0;
+#X connect 3 0 4 0;
+#X connect 4 0 2 0;
+#X connect 4 0 2 1;
+#X connect 5 0 7 0;
+#X connect 6 0 7 0;
+#X connect 8 0 7 0;
