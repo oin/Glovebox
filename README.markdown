@@ -24,7 +24,7 @@ I didn't aim to develop a full fledged improvised interface : Glovebox has some 
 
 # How to use Glovebox
 
-For now, Glovebox only works on Mac OS X Intel machines. It has been tested on Lion. You can download the last compiled version in [GitHub](https://github.com/oin/Glovebox/downloads) or in the [official site](http://glovebox.oin.name).
+For now, Glovebox only works on fairly recent (>= 2007-2008) Mac OS X Intel machines. It has been tested on Lion and Snow Leopard. You can download the last compiled version in [GitHub](https://github.com/oin/Glovebox/downloads) or in the [official site](http://glovebox.oin.name).
 
 ## Preparation
 

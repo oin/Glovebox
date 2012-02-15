@@ -8,7 +8,7 @@ Usage:
 from setuptools import setup
 
 APP = ['Glovebox.py']
-DATA_FILES = ['glovebox', 'behaviors', 'libglovebox.so', 'camera.cal', 'data']
+DATA_FILES = ['glovebox', 'behaviors', 'camera.cal', 'data']
 OPTIONS = {'argv_emulation': True, 'plist': {'LSArchitecturePriority': ['i386'] }}
 
 setup(
