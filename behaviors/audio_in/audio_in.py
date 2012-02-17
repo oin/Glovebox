@@ -35,7 +35,7 @@ class AudioInBehavior(SourceBehavior):
 		self.display_name = behavior_name
 		self.sprite = ObjectSprite("maracas.png")
 		self.menu = None
-		self.init_attribute('volume', 'Volume', (0.0, 10.0), 'audio_in_behavior_default_volume', 1)
+		self.init_attribute('volume', 'Volume', (0.0, 10.0), 'audio_in_behavior_default_volume', 0.5)
 	
 	def has_just_attached(self, object):
 		super(AudioInBehavior, self).has_just_attached(object)

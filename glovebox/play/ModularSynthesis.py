@@ -73,6 +73,18 @@ class SourceBehavior(Behavior.Behavior):
 		"""Turn the patch off."""
 		director.app.audio.turn_off_patch(self.patch)
 	
+	def bang(self):
+		director.app.audio.send_num_to_patch(self.patch, "bang", 1)
+	
+	def impulse(self, value = 1):
+		director.app.audio.send_num_to_patch(self.patch, "impulse", value)
+	
+	def start(self):
+		director.app.audio.send_num_to_patch(self.patch, "start", 1)
+	
+	def stop(self):
+		director.app.audio.send_num_to_patch(self.patch, "stop", 1)
+	
 	def associate(self, behavior):
 		if not isinstance(behavior, FXBehavior):
 			director.app.play_scene.messages.show("You can only redirect sound to effect behaviors.")

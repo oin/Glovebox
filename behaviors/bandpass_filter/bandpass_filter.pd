@@ -1,0 +1,12 @@
+#N canvas 0 22 450 300 10;
+#X obj 18 263 ../_lib/to_glovebox \$0;
+#X obj 144 241 inlet;
+#X obj 89 90 bp~ 1000 10;
+#X obj 23 8 route freq q;
+#X obj 138 12 catch~ gloveboxinput\$0;
+#X connect 0 0 3 0;
+#X connect 1 0 0 1;
+#X connect 2 0 0 0;
+#X connect 3 0 2 1;
+#X connect 3 1 2 2;
+#X connect 4 0 2 0;

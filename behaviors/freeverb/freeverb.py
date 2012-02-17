@@ -21,15 +21,15 @@
 from glovebox.play.ModularSynthesis import *
 from glovebox.play.Behavior import *
 
-behavior_name = 'SimpleDelay'
-behavior_description = "A simple delay."
+behavior_name = 'Freeverb'
+behavior_description = "A reverb."
 behavior_menu = ['FX']
 
-class SimpleDelayBehavior(FXBehavior):
+class FreeverbBehavior(FXBehavior):
 	def __init__(self):
-		super(SimpleDelayBehavior, self).__init__("simple_delay/simple_delay.pd")
+		super(FreeverbBehavior, self).__init__("freeverb/freeverb.pd")
 		global behavior_name
 		self.display_name = behavior_name
-		self.init_attribute('delay', 'DelayTime', (1.0, 1000), 'simple_delay_default_delay_time', 150, format_time_ms)
-		self.init_attribute('feedback', 'Feedback', (0.0, 1.0), 'simple_delay_default_feedback', 0.4)
-		self.init_attribute('wet', 'Dry/Wet', (0.0, 1.0), 'simple_delay_default_dry_wet', 0.5)
+		self.init_attribute('damping', 'Damping', (0.0, 1.0), 'freeverb_default_damping', 0.5)
+		self.init_attribute('roomsize', 'RoomSize', (0.0, 1.0), 'freeverb_default_roomsize', 0.85)
+		self.init_attribute('wet', 'Dry/Wet', (0.0, 1.0), 'freeverb_default_wet', 0.5)

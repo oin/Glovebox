@@ -27,6 +27,24 @@ extern "C" {
 #include <boost/filesystem.hpp>
 #include "pd_patch.h"
 
+extern "C" {
+	void bonk_tilde_setup();
+	void choice_setup();
+	void expr_setup();
+	void fiddle_setup();
+	void loop_tilde_setup();
+	void lrshift_tilde_setup();
+	void pique_setup();
+	void sigmund_tilde_setup();
+	
+	void freeverb_tilde_setup();
+	void disto_tilde_setup();
+	void freeverb_tilde_setup();
+	void beatpipe_setup();
+	void bassemu_tilde_setup();
+	void compressor_tilde_setup();
+}
+
 namespace {
 	void PrintFromPd(const char* s) {
 		std::cout << "(pd) " << s << std::endl;
@@ -105,6 +123,23 @@ bool PdEngine::Open(const audio_settings& s) {
 	libpd_init();
 	int err = libpd_init_audio(s.nb_input_channels(), s.nb_output_channels(), s.sample_rate);
 	if(err != 0) return false;
+	
+	// Initialize the extras and externals
+	bonk_tilde_setup();
+	choice_setup();
+	expr_setup();
+	fiddle_setup();
+	loop_tilde_setup();
+	lrshift_tilde_setup();
+	pique_setup();
+	sigmund_tilde_setup();
+	
+	freeverb_tilde_setup();
+	disto_tilde_setup();
+	freeverb_tilde_setup();
+	beatpipe_setup();
+	bassemu_tilde_setup();
+	compressor_tilde_setup();
 	
 	// Create a temporary file containing the server pd patch
 	// (tmpnam is bad for your health but...)

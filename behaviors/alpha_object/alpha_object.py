@@ -85,12 +85,11 @@ class AlphaObjectBehavior(Behavior):
 					if self.target_association_selection and self.target_association_selection_shaker.update(self.object.raw_translation):
 						# Associate the selection
 						self.target_association_mode = False
-						
-						self.target.behavior.associate(self.target_association_selection.behavior)
+						if self.target.behavior.associate(self.target_association_selection.behavior):
+							director.app.play_scene.messages.show("Behaviors associated.")
 						self.target_association_selection = None
 						self.lock = False
 						self.menu_cancelled()
-						director.app.play_scene.messages.show("Behaviors associated.")
 	
 	def show_menu(self):
 		self.target_mode = False

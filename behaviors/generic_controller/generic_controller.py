@@ -43,7 +43,7 @@ class GenericControllerBehavior(CtrlBehavior):
 		super(GenericControllerBehavior, self).update()
 		if self.controlled_attribute:
 			distance = self.object.translation.distance(self.association.object.translation)
-			distance_ratio = min(1.0, distance * 1.0 / self.attributes['control_distance'].value)
+			distance_ratio = max(0, min(1.3, distance * 1.0 / self.attributes['control_distance'].value) - 0.3)
 			value = self.controlled_attribute.range[0] + (distance_ratio * (self.controlled_attribute.range[1] - self.controlled_attribute.range[0]))
 			self.controlled_attribute.set(value)
 	

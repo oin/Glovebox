@@ -128,6 +128,7 @@ class Behavior(object):
 			unassociate()
 		self.association = behavior
 		behavior.register_for("detached", self)
+		return True
 	
 	def unassociate(self):
 		"""Stop being associated with the current associated behavior, if any."""

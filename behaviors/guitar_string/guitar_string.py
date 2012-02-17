@@ -21,15 +21,15 @@
 from glovebox.play.ModularSynthesis import *
 from glovebox.play.Behavior import *
 
-behavior_name = 'SimpleDelay'
-behavior_description = "A simple delay."
-behavior_menu = ['FX']
+behavior_name = 'GuitarString'
+behavior_description = "A guitar string."
+behavior_menu = ['Sources']
 
-class SimpleDelayBehavior(FXBehavior):
+class GuitarStringBehavior(SourceBehavior):
 	def __init__(self):
-		super(SimpleDelayBehavior, self).__init__("simple_delay/simple_delay.pd")
+		super(GuitarStringBehavior, self).__init__("guitar_string/guitar_string.pd")
 		global behavior_name
 		self.display_name = behavior_name
-		self.init_attribute('delay', 'DelayTime', (1.0, 1000), 'simple_delay_default_delay_time', 150, format_time_ms)
-		self.init_attribute('feedback', 'Feedback', (0.0, 1.0), 'simple_delay_default_feedback', 0.4)
-		self.init_attribute('wet', 'Dry/Wet', (0.0, 1.0), 'simple_delay_default_dry_wet', 0.5)
+		self.init_attribute('freq', 'Frequency', (1, 1000), 'guitar_string_default_freq', 440, format_frequency)
+		self.init_attribute('note', 'Note', (4, 90), 'guitar_string_default_note', 69)
+		self.init_attribute('damping', 'Damping', (0.0, 1.0), 'guitar_string_default_damping', 0.1)

@@ -73,7 +73,7 @@ class Application(pyglet.event.EventDispatcher):
 		self.camera_config.image_width = cam_w
 		self.camera_config.image_width = cam_h
 		self.camera_config.calibration_file = 'camera.cal'
-		self.camera_config.desired_framerate = kwargs.pop('camera_fps', 120)
+		self.camera_config.desired_framerate = kwargs.pop('camera_fps', 60)
 		# cocos2d and scenes
 		director.init(caption='Glovebox', width=w, height=h, audio=None, resizable=True, )
 		self.config_scene = ConfigScene()
