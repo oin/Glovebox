@@ -21,7 +21,8 @@
 #include "qt_cameraman.h"
 #include "qt_sequence_grabber.h"
 #include <boost/detail/endian.hpp>
-#include <QuickTimeComponents.h>
+#include <QuickTime/QuickTimeComponents.h>
+#include "QuickDrawCompatibility.h"
 #include <algorithm>
 #include <iostream>
 
@@ -84,7 +85,8 @@ bool QTCameraman::Open(const camera_settings& s) {
 	QTNewGWorldFromPtr(&graphics_world_, k24RGBPixelFormat, &frame_rect_, NULL, NULL, 0, offscreen_graphics_world_, 3 * s.image_width);
 #endif
 	
-	LockPixels(GetGWorldPixMap(graphics_world_));
+	// LockPixels(GetGWorldPixMap(graphics_world_));
+	// LockPixels(GetPortPixMap(graphics_world_));
 	SetGWorld(graphics_world_, NULL);
 	SGSetGWorld(grabber_->sequence_grabber, graphics_world_, nil);
 	

@@ -54,10 +54,6 @@ if(APPLE)
 	# We must compile in 32bit since we need Quicktime legacy functionality
 	set(CMAKE_OSX_ARCHITECTURES i386)
 	set(CMAKE_CXX_FLAGS "-m32")
-	# If you're on Lion, don't forget to change this variable !
-	# set(CMAKE_OSX_SYSROOT /Developer/SDKs/MacOSX10.6.sdk)
-	# We need to link against some nasty frameworks
-	include_directories("/Developer/Headers/FlatCarbon")
 	find_library(QUICKTIME_LIBRARY QuickTime)
 	find_library(CARBON_LIBRARY Carbon)
 	find_library(APP_SERVICES_LIBRARY ApplicationServices)
