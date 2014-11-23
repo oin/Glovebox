@@ -7,8 +7,6 @@ else(WIN32)
     add_definitions(-Wall -g -O3)
 endif(WIN32)
 
-add_definitions(-arch i386 -m32)
-
 set(AR_SOURCE_DIR ${PROJECT_SOURCE_DIR})
 include_directories(${AR_SOURCE_DIR}/include)
 

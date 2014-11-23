@@ -44,28 +44,14 @@ list(APPEND LIBRARIES ofMath)
 # ================
 # = SOURCE FILES =
 # ================
-set(SOURCES "src/glovebox.cpp" "src/audio_engine.cpp" "src/pd_engine.cpp" "src/system_audio.cpp" "src/pd_patch.cpp" "src/webcam_tracker.cpp" "src/gl_texture.cpp")
+set(SOURCES "src/glovebox.cpp" "src/audio_engine.cpp" "src/pd_engine.cpp" "src/system_audio.cpp" "src/pd_patch.cpp" "src/webcam_tracker.cpp" "src/gl_texture.cpp" "src/leap/leap_cameraman.cpp")
 set_source_files_properties(${SOURCES} PROPERTIES COMPILE_FLAGS "-Wall")
 
 # =======================================
 # = PLATFORM-SPECIFIC OPTIONS AND FILES =
 # =======================================
 if(APPLE)
-	# We must compile in 32bit since we need Quicktime legacy functionality
-	set(CMAKE_OSX_ARCHITECTURES i386)
-	set(CMAKE_CXX_FLAGS "-m32")
-	find_library(QUICKTIME_LIBRARY QuickTime)
-	find_library(CARBON_LIBRARY Carbon)
-	find_library(APP_SERVICES_LIBRARY ApplicationServices)
-	find_library(CORE_SERVICES_LIBRARY CoreServices)
-	mark_as_advanced(QUICKTIME_LIBRARY APP_SERVICES_LIBRARY CORE_SERVICES_LIBRARY CARBON_LIBRARY)
-	list(APPEND LIBRARIES "${QUICKTIME_LIBRARY}" "${APP_SERVICES_LIBRARY}" "${CORE_SERVICES_LIBRARY}" "${CARBON_LIBRARY}")
 	
-	# There are sources that are OS X specific
-	set(OSX_SOURCES "src/mac/qt_cameraman.cpp" "src/mac/qt_sequence_grabber.cpp")
-	list(APPEND SOURCES ${OSX_SOURCES})
-	# Don't show these deprecation warnings
-	set_source_files_properties(${OSX_SOURCES} PROPERTIES COMPILE_FLAGS "-Wno-deprecated-declarations")
 endif()
 
 if(UNIX AND NOT APPLE)
@@ -102,6 +88,11 @@ list(APPEND LIBRARIES ${PORTAUDIO_LIBRARIES})
 find_package(OpenGL REQUIRED)
 include_directories(${OPENGL_INCLUDE_DIRS})
 list(APPEND LIBRARIES ${OPENGL_LIBRARIES})
+
+# Requirement: Leap Motion SDK
+find_package(Leap REQUIRED)
+include_directories(${LEAP_INCLUDE_DIRS})
+list(APPEND LIBRARIES ${LEAP_LIBRARIES})
 
 # ===================
 # = TARGET SETTINGS =
